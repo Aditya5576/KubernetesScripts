@@ -1,0 +1,23 @@
+Kubernetes-Volume (emptyDir)
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flipkart
+spec:
+  containers:
+  - name: signup
+    image: centos
+    command: ["/bin/bash", "-c", "sleep 1500"]
+    volumeMounts:
+      - name: aditya
+        mountPath: "/tmp/signup"
+  - name: login
+    image: centos
+    command: ["/bin/bash", "-c", "sleep 1500"]
+    volumeMounts:
+      - name: aditya
+        mountPath: "/tmp/login"
+  volumes:
+    - name: aditya
+      emptyDir: {}
